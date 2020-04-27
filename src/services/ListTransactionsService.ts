@@ -11,14 +11,6 @@ class ListTransactionsService {
     const transactions = await transactionsRepository
       .createQueryBuilder('transactions')
       .leftJoinAndSelect('transactions.category', 'category')
-      .select([
-        'transactions.id',
-        'transactions.title',
-        'transactions.value',
-        'transactions.type',
-        'category.id',
-        'category.title',
-      ])
       .getMany();
 
     return transactions;

@@ -83,8 +83,6 @@ class ImportTransactionsService {
 
     await fs.promises.unlink(fileName);
 
-    console.log(existentCategories, newCategories);
-
     return createdTransactions;
   }
 }

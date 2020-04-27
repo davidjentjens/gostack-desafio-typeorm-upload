@@ -1,4 +1,4 @@
-import { Router, request } from 'express';
+import { Router } from 'express';
 import { getCustomRepository } from 'typeorm';
 import multer from 'multer';
 
@@ -37,12 +37,6 @@ transactionsRouter.post('/', async (req, res) => {
     type,
     category,
   });
-
-  delete transaction.category_id;
-  delete transaction.created_at;
-  delete transaction.updated_at;
-  delete transaction.category.created_at;
-  delete transaction.category.updated_at;
 
   return res.json(transaction);
 });
